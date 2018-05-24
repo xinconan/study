@@ -23,8 +23,8 @@
       text-align: center;
     }
   canvas{
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.54rem;
+    height: 3.54rem;
   }
   </style>
 </head>
@@ -32,10 +32,69 @@
   <header>
     <section class="header-top"></section>
     <section class="canvas-wrapper">
-      <canvas></canvas>
+      <canvas id="canvas"></canvas>
 
     </section>
 
   </header>
+
+  <script>
+    const DPR = window.dpr||2;
+    const canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        averageDeg = Math.PI * 3.6/180, // 每段弧度,1%对应3.6°
+        cWidth = parseInt(177*DPR),
+        cHeight = parseInt(177* DPR);
+    const radius = (cWidth - 11*DPR)/2;
+    canvas.setAttribute('width',cWidth); // 需要手动设置canvas画布大小
+    canvas.setAttribute('height',cHeight);
+
+    const RAF = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    const CAF = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame;
+    
+    let reqFrame;
+    const precent = Math.floor((3000/3000) * 100); // 百分比
+    let outerAngle = 0, outerCount =0;
+
+    (function drawFrame() {
+      ctx.save();
+      ctx.clearRect(0,0, cWidth, cHeight);
+      ctx.translate(cWidth / 2, cHeight /2 ); // 将画布原点移到中心点位置(圆的中心)
+      ctx.rotate(-Math.PI*0.5); // 旋转-90°
+
+      // 内层圈
+      ctx.save();
+      ctx.beginPath();
+      ctx.lineWidth = DPR*8;
+      ctx.strokeStyle = '#33C5CF';
+      ctx.arc(0, 0, radius, 0, Math.PI*2, false);
+      ctx.stroke();
+      ctx.restore();
+
+      // 外层圈
+      ctx.save();
+      ctx.beginPath();
+      ctx.lineWidth = DPR*11;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#fff';
+      ctx.arc(0, 0, radius, 0, outerAngle, false);
+      ctx.stroke();
+      ctx.restore();
+      ctx.restore();
+      console.log(outerCount)
+
+      reqFrame = RAF(drawFrame);
+      if (outerCount < precent) {
+        outerAngle += averageDeg;
+        outerCount++;
+      }else {
+        CAF(reqFrame);
+      }
+
+
+    })();
+
+
+  </script>
 </body>
 </html>
