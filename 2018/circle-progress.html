@@ -32,7 +32,7 @@
   <header>
     <section class="header-top"></section>
     <section class="canvas-wrapper">
-      <canvas id="canvas"></canvas>
+      <canvas id="canvas">当前浏览器不支持canvas</canvas>
 
     </section>
 
@@ -53,7 +53,7 @@
     const CAF = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame;
     
     let reqFrame;
-    const precent = Math.floor((3000/3000) * 100); // 百分比
+    const precent = Math.floor((2000/3000) * 100); // 百分比
     let outerAngle = 0, outerCount =0;
 
     (function drawFrame() {
