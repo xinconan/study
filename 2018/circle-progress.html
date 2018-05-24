@@ -39,22 +39,22 @@
   </header>
 
   <script>
-    const DPR = window.dpr||2;
-    const canvas = document.getElementById('canvas'),
+    var DPR = window.dpr||2;
+    var canvas = document.getElementById('canvas'),
         ctx = canvas.getContext('2d'),
         averageDeg = Math.PI * 3.6/180, // 每段弧度,1%对应3.6°
         cWidth = parseInt(177*DPR),
         cHeight = parseInt(177* DPR);
-    const radius = (cWidth - 11*DPR)/2;
+    var radius = (cWidth - 11*DPR)/2;
     canvas.setAttribute('width',cWidth); // 需要手动设置canvas画布大小
     canvas.setAttribute('height',cHeight);
 
-    const RAF = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-    const CAF = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame;
+    var RAF = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    var CAF = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame;
     
-    let reqFrame;
-    const precent = Math.floor((2000/3000) * 100); // 百分比
-    let outerAngle = 0, outerCount =0;
+    var reqFrame;
+    var precent = Math.floor((3000/3000) * 100); // 百分比
+    var outerAngle = 0, outerCount =0;
 
     (function drawFrame() {
       ctx.save();
