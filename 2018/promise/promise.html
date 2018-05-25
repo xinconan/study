@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Promise</title>
+</head>
+<body>
+
+<script>
+function loadImg(src) {
+	return new Promise((resolve,reject) => {
+		const img = new Image();
+		img.onload = ()=>{
+			resolve(img);
+		}
+		img.onerror = () => {
+			reject()
+		}
+		img.src = src;
+	})
+}
+const result = loadImg('http://file.ituring.com.cn/SmallCover/17114893a523520c7382');
+result.then(img => {
+	console.log(img.width)
+},() => {
+	console.log('fail')
+})
+</script>
+</body>
+</html>
