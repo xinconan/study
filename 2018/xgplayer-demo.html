@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+  <script src="//cdn.jsdelivr.net/npm/xgplayer@1.0.8/browser/index.js" type="text/javascript"></script>
+  <style>
+  html,body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #f5f5f5;
+  }
+  #J_player{
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div id="J_player"></div>
+<script>
+window.onload = function(){
+  var qs = getQueryString();
+  console.log(qs)
+  document.title = qs.title || '视频';
+  if(qs.videoUrl) {
+    var player = new Player({
+      id: 'J_player',
+      url: qs.videoUrl,
+      width: '100%',
+      height: '100%'
+    });
+  }else{
+    // 没有检测到视频源
+  }
+}
+function getQueryString(queryString) {
+    var result = {};
+    var searchStr = queryString || window.location.search;
+    var bool = {
+        'true': true,
+        'false': false
+    };
+    var kv;
+    searchStr = searchStr.indexOf('?') === 0 ? searchStr.substr(1) : searchStr;
+    searchStr = searchStr ? searchStr.split('&') : '';
+    for (var i = 0; i < searchStr.length; i++) {
+        kv = searchStr[i].split('=');
+        kv[1] = decodeURIComponent(kv[1]);
+        //Boolean
+        kv[1] = Object.prototype.toString.call(bool[kv[1]]).replace(/\[object (\w+)\]/, '$1').toLowerCase() === 'undefined' ? kv[1] : bool[kv[1]];
+        //Number
+        //kv[1] = +kv[1] + '' === kv[1] ? +kv[1] : kv[1];
+        result[kv[0]] = kv[1];
+    }
+    return result;
+}
+</script>
+</body>
+</html>
