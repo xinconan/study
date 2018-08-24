@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <script>!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);window.dpr =s;var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,viewport-fit=cover,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);flex(100,1);</script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        p{
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+        }
+        .x-audio-wrapper{
+            background: #fff;
+            margin: 0 0.3rem;
+            padding: 0.5rem 0.2rem 0.6rem;
+            -webkit-box-shadow: 0 0 0.2rem 0 rgba(0,0,0,0.10);
+            box-shadow: 0 0 0.2rem 0 rgba(0,0,0,0.10);
+            border-radius: 0.04rem;
+        }
+        .x-audio-wrapper .title{
+            font-size: 0.36rem;
+            line-height: 0.5rem;
+            color: rgba(0,0,0,0.87);
+            text-align: center;
+            padding: 0 0.1rem;
+        }
+        .flex{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -moz-align-items: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .flex-jusity{
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+        .flex-item{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        .btn-prev,.btn-next{
+            width: 0.44rem;
+            height: 0.44rem;
+            background-repeat: no-repeat;
+            background-size: 0.44rem;
+        }
+        .btn-prev{
+            background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsBAMAAADsqkcyAAAAMFBMVEUAAADGxsa8vLzCwsLAwMC9vb2/v7+9vb2+vr6+vr69vb29vb2+vr69vb27u7u9vb0r/0e9AAAAD3RSTlMACRcHKREi8EjPwYt6PzLi1GEGAAAA/klEQVQoz42TTQrCMBCFI3MBtfQAgtZtingFV4JY6QVciKAiCK5dewqP4BFcegfv4EZERNAx+upfJpFm9fIxfU0yb5R/EZELN+JAf3ZaY0NhmnZfnKgUQMXJYFArPiVqUNKsM896oLqZjOYB8JT5ZDC+HK4O0OEDd2EcVjeZVuUO87EC42hpSiq/WMfJiKE/GMZvTBkmY7FhuxrGAhvj8ULiOJmsDbO8a2m0Zbarb/1oxw7cai8c+LqHseV9hrFdfWEn5ryYvCb4peeAua5D3svLp5IP+78N5G0aJFrsCYTESsZHhk1G0xtkf+wL7iFpyJGC/B5AUlpnykiVa90BjKOBY0g/KzEAAAAASUVORK5CYII=');
+        }
+        .btn-next{
+            background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsBAMAAADsqkcyAAAAMFBMVEUAAADGxsa8vLzAwMC9vb2+vr69vb2+vr68vLy+vr6+vr69vb2+vr69vb29vb29vb0MBKAHAAAAD3RSTlMACBcpESLxRzp60seJvZFYlTW3AAABAUlEQVQoz42TTWoCQRCFu27QHeYCgU62AS8QWoYcYILrQHZCtoHsssraRfAMHsGlC/EO3kN0oehTp0bKph9ibeZN8fH6p167O8tLqZxICF6lqk5XdZ28SlWq+4NB1J/wtoipa1fPwGdS+bL9jqFrfwDrdJGHXu3V2toPr8CkSf6iV48tcZaYtzZi7ZaA2hc0vnrJlzQwPdmXNDbjGAiN3V8MJQ0Mm7pf0sCyeSI0Nv/vI0Jj/zMiNDD8ZTQwozTAaRhNTRxfUvgGHT+O8MM7flXCLlZpNc7GIHxozkacTd4CkU3e4pPRFjajLZp5YnmQeez5IymeVKiuGP0aQ0rcjToCvp1qK1VSV18AAAAASUVORK5CYII=');
+        }
+        .btn-status{
+            width: 0.62rem;
+            height: 0.62rem;
+            background-repeat: no-repeat;
+            background-size: 0.62rem;
+            margin: 0 1.3rem;
+        }
+        .btn-play{
+            background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAA+CAMAAABEH1h2AAAASFBMVEUAAAAAyNgAvNYAvNUAw9kAvtYAvdUAvdcAvNUAvtcAvNQAvNUAvNUAvtYAvNUAv9cAvdYAvdUAvdUAvdYAvNQAu9IAvNUAvNQ0oGCqAAAAF3RSTlMABxEhDBsWKvQz5qKTY1RKQdvQscSHdHJux+kAAAD+SURBVEjH1ZfZEoIwDEWlUCmILC7k//9UUGfOc64zUfN+2jttbpbDr0T1CpluUkqNesBGT1PO+wHS5Wkwu821dkDV5GJm5d7mo8BXKdszLhMCPHht7xja+pjgvbgtIwIcOHHqECDgtpwR4McRUIm49Qjw4MS1qzMC3Lj1KwI8OALIYgW3spLFAo6NNBwbiTg2EnErAwI8OAKwkYDjYxHHxxqOjUQcG/lxbMQXOHAEbLyA8wK7i3Xcxm/iiNefLv7jSJvwpMUy4YalXIQXK0pleKGmTYQ3KVpkeINmPAgfThiNogczrg4fSnHmxwO5vg7ELSOsQnMGDl3EWAP/Jx7ub3GOc2gWEQAAAABJRU5ErkJggg==');
+        }
+        .btn-pause{
+            background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAA+BAMAAACB77V3AAAAGFBMVEUAAAAAyc0AxdsAu9MAvdUAvNQAu9QAvNRKAWSIAAAAB3RSTlMACRUoH7++5xPsAgAAAHNJREFUOMvtlbERgCAMRWGDwAZRJtANWMJJlPW9HPFy/yi0oLDIo3q8o+WHOZCc0ZQYk0B6l9Ss50Vg6tlMyWUXKqPZ86MJJ4NZL61TCe3pq95sBObdu3fv3n/eX/530kW4GO3zvsA+geG+RbBhHgk0hhncig15J110n6gAAAAASUVORK5CYII=');
+        }
+        .controls{
+            font-size: 0.26rem;
+            color: rgba(0,0,0,.87);
+            margin: 0.5rem 0 0.6rem;
+        }
+        .progress{
+            margin: 0 0.2rem;
+            position: relative;
+            height: 0.3rem;
+        }
+        .progress-bar,.progress-in{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 0.04rem;
+            transform: translateY(-50%);
+        }
+        .progress-bar{
+            width: 100%;
+            background: #bdbdbd;
+        }
+        .progress-in{
+            width: 0;
+            background: #00BCD4;
+        }
+        .progress-dot{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            width: 0.2rem;
+            height: 0.2rem;
+            background: #fff;
+            border: 0.07rem solid #00BCD4;
+            border-radius: 50%;
+            /*-webkit-transition: all 0.25s ease;*/
+            /*transition: all 0.25s ease;*/
+        }
+
+    </style>
+</head>
+<body>
+<div style="padding-top: 0.3rem;">
+    <div class="x-audio-wrapper">
+        <p class="title" id="J_title">加载中</p>
+        <div class="controls flex">
+            <span id="J_progress">0'0''</span>
+            <div class="flex-item progress">
+                <div class="progress-bar"></div>
+                <div class="progress-in" id="J_in"></div>
+                <div class="progress-dot" id="J_dot"></div>
+            </div>
+            <span id="J_total">0'00''</span>
+        </div>
+        <div class="flex flex-jusity">
+            <div class="btn-prev"></div>
+            <div class="btn-status btn-play" id="J_player"></div>
+            <div class="btn-next"></div>
+        </div>
+    </div>
+</div>
+<script src="https://a.alipayobjects.com/static/fastclick/1.0.6/fastclick.min.js"></script>
+<script src="./lodash.throttle.debounce.min.js"></script>
+<script>
+    FastClick && FastClick.attach(document.body);
+function ready(callback) {
+    // 如果jsbridge已经注入则直接调用
+    if (window.AlipayJSBridge) {
+        callback && callback();
+    } else {
+        // 如果没有注入则监听注入的事件
+        document.addEventListener('AlipayJSBridgeReady', callback, false);
+    }
+}
+var J_title = document.getElementById('J_title');
+var J_player = document.getElementById('J_player');
+var J_progress = document.getElementById('J_progress');
+var J_total = document.getElementById('J_total');
+var J_dot = document.getElementById('J_dot');
+var J_in = document.getElementById('J_in');
+var J_bar = document.getElementsByClassName('progress')[0];
+var J_audio;
+var pause = true;
+window.onload = function(){
+    var qs = getQueryString();
+    console.log(qs)
+    qs.title = qs.title || '音频播放';
+    document.title = qs.title;
+    J_title.innerHTML = qs.title;
+    if(navigator.userAgent.indexOf("AlipayClient") > -1) {
+        // in alipay
+        ready(function(){
+            AlipayJSBridge.call('setTitle', {
+                title: qs.title,
+            });
+        });
+    }
+    if(qs.audioUrl) {
+        init(qs.audioUrl);
+    }else{
+        // 没有检测到视频源
+//        alert('缺少必要的参数');
+    }
+    J_player.addEventListener('click', function () {
+        if(J_audio) {
+            if(pause) {
+                J_audio.play();
+            }else{
+                J_audio.pause();
+            }
+        }
+    });
+    J_bar.addEventListener('click', _.throttle(onclick, 20));
+//    J_bar.addEventListener('touchstart', _.throttle(onTouchStart, 30));
+    J_bar.addEventListener('touchmove', _.throttle(onTouchMove, 30));
+    J_bar.addEventListener('touchend', _.throttle(onTouchEnd, 30));
+}
+function onclick(e) {
+    barClick(e, true);
+}
+function onTouchStart(e) {
+    barClick(e.touches[0] || e);
+}
+function onTouchMove(e) {
+    barClick(e.touches[0] || e, false);
+}
+function onTouchEnd(e) {
+    barClick(e.changedTouches[0] || e, true);
+}
+function barClick(e, play) {
+    // 点击偏移多少
+    var px = e.pageX - J_bar.offsetLeft;
+    // 进度多少
+    var percent = px/J_bar.offsetWidth;
+    var currentTime = J_audio.duration * percent;
+    var per = percent*100 + '%';
+    J_dot.style.left = per;
+    J_in.style.width = per;
+    if(play) {
+        J_audio.currentTime = currentTime;
+        J_audio.play();
+    }
+}
+function init(url) {
+    J_audio = document.createElement('audio');
+    document.body.appendChild(J_audio);
+    // 绑定歌曲进度变化事件
+    J_audio.addEventListener('timeupdate', updateProgress);   // 更新进度
+    J_audio.addEventListener('play', audioPlay); // 开始播放了
+    J_audio.addEventListener('pause', audioPause);   // 暂停
+    J_audio.addEventListener('ended', audioEnd);   // 播放结束
+    J_audio.addEventListener('error', audioErr);   // 播放器错误处理
+    J_audio.setAttribute('src', url);
+    J_audio.ondurationchange= function () {
+        // 获取音频总时长
+        var duration = J_audio.duration;
+        console.log(duration)
+        var min = parseInt(duration / 60);
+        var sec = parseInt(duration % 60);
+        if(sec < 10) {
+            sec = '0'+ sec;
+        }
+        J_total.innerHTML = min + "'"+sec+"''";
+    }
+    J_audio.load();
+}
+// 播放
+function audioPlay() {
+    pause = false;
+    J_player.classList.add('btn-pause');
+    J_player.classList.remove('btn-play');
+}
+// 暂停
+function audioPause() {
+    pause = true;
+    J_player.classList.add('btn-play');
+    J_player.classList.remove('btn-pause');
+}
+// 结束
+function audioEnd() {
+    
+}
+function updateProgress() {
+    var duration = J_audio.currentTime;
+    var min = parseInt(duration / 60);
+    var sec = parseInt(duration % 60);
+    if(sec < 10) {
+        sec = '0'+ sec;
+    }
+    J_progress.innerHTML = min + "'"+sec+"''";
+    var percent = (duration/J_audio.duration*100) + '%';
+    J_dot.style.left = percent;
+    J_in.style.width = percent;
+}
+function audioErr() {
+    alert('视频播放错误');
+}
+function getQueryString(queryString) {
+    var result = {};
+    var searchStr = queryString || window.location.search;
+    var bool = {
+        'true': true,
+        'false': false
+    };
+    var kv;
+    searchStr = searchStr.indexOf('?') === 0 ? searchStr.substr(1) : searchStr;
+    searchStr = searchStr ? searchStr.split('&') : '';
+    for (var i = 0; i < searchStr.length; i++) {
+        kv = searchStr[i].split('=');
+        kv[1] = decodeURIComponent(kv[1]);
+        //Boolean
+        kv[1] = Object.prototype.toString.call(bool[kv[1]]).replace(/\[object (\w+)\]/, '$1').toLowerCase() === 'undefined' ? kv[1] : bool[kv[1]];
+        //Number
+        //kv[1] = +kv[1] + '' === kv[1] ? +kv[1] : kv[1];
+        result[kv[0]] = kv[1];
+    }
+    return result;
+}
+</script>
+</body>
+</html>
