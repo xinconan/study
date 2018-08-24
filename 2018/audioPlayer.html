@@ -208,7 +208,7 @@ function onTouchStart(e) {
     barClick(e.touches[0] || e);
 }
 function onTouchMove(e) {
-    barClick(e.touches[0] || e, false);
+    barClick(e.changedTouches[0] || e, false);
 }
 function onTouchEnd(e) {
     barClick(e.changedTouches[0] || e, true);
@@ -218,6 +218,12 @@ function barClick(e, play) {
     var px = e.pageX - J_bar.offsetLeft;
     // 进度多少
     var percent = px/J_bar.offsetWidth;
+    // 0-1
+    if(percent < 0) {
+        percent = 0;
+    }else if(percent>1){
+        percent = 1;
+    }
     var currentTime = J_audio.duration * percent;
     var per = percent*100 + '%';
     J_dot.style.left = per;
