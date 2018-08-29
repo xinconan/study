@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="300">
+    你的浏览器不支持canvas，请升级！
+  </canvas>
+  <script>
+  let canvas = document.getElementById('canvas');
+  let ctx = canvas.getContext('2d');
+  // canvas宽高不要通过css设置，可以通过下面这样设置
+  // canvas.width = 600;
+  // canvas.height = 300;
+  canvas.style.border='1px solid red';
+  // 把画笔移动到 100,100点
+  ctx.moveTo(100,100);
+  ctx.lineTo(200,100); // 从画笔的位置 画一条直线到 200,100点
+  ctx.lineTo(100,200); // 从当前位置，再画一条直线到 100,200点
+
+  ctx.closePath(); // 闭合路径
+  ctx.lineWidth = 4; // 设置线宽
+  ctx.strokeStyle = 'red'; // 描边样式
+  ctx.stroke();  // 绘制描边
+  ctx.fillStyle = 'black';
+  ctx.fill();  // 填充
+  </script>
+</body>
+</html>
