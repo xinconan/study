@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas--beginPath</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="300">
+    你的浏览器不支持canvas，请升级！
+  </canvas>
+  <script>
+  let canvas = document.getElementById('canvas');
+  let ctx = canvas.getContext('2d');
+  canvas.style.border='1px solid red';
+  ctx.moveTo(100,100); 
+  // 第一次不需要设置beginPath
+  ctx.lineWidth = 10;
+  ctx.strokeStyle = 'red'; 
+  ctx.lineTo(300,100); 
+  ctx.stroke();
+
+  // 开启了一个新的状态，新状态可以继承之前状态的样式，
+	// 但是当前状态设置所有的样式，只能作用于当前的状态。
+  ctx.beginPath(); // 开一个新路径，开启新状态的绘图
+  ctx.moveTo(100, 200);
+  ctx.strokeStyle = 'blue'; 
+  ctx.lineTo(300,200); 
+  ctx.stroke();
+
+  ctx.beginPath(); // 开一个新路径，开启新状态的绘图
+  ctx.moveTo(100, 250);
+  ctx.strokeStyle = 'yellow'; 
+  ctx.lineWidth = 15;
+  ctx.lineTo(300,250); 
+  ctx.stroke();
+  </script>
+</body>
+</html>
