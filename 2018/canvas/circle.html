@@ -40,11 +40,25 @@
     for(let i=0;i<data.length; i++) {
       ctx.beginPath();
       ctx.moveTo(tx, ty);  // 移到中心点
-      let angle = data[i].value * 360;  // 占多少弧度（比例）
-      let begin = tempArc * Math.PI / 180;
+      let angle = data[i].value * 360;  // 占多少度（比例）
+      let begin = tempArc * Math.PI / 180;  // 度到弧度的转化
       let end = (tempArc + angle) * Math.PI / 180;
       ctx.fillStyle = data[i].color;
       ctx.arc(tx, ty, radius, begin, end);
+
+      // 绘制文字
+      let txtAngle = tempArc + 0.5*angle;
+      // 如果角度在90-270度之间，end对齐
+      if(txtAngle>90 && txtAngle < 270) {
+        ctx.textAlign = 'end';
+      }
+      txtAngle = txtAngle * Math.PI / 180;
+      // 确定坐标位置，在半径直线延长20处
+      let txtX = tx + Math.cos(txtAngle) * (radius+20);
+      let txtY = ty + Math.sin(txtAngle) * (radius+20);
+      ctx.font='20px "微软雅黑"'; // 单独设置20px无效
+      ctx.fillText(`${data[i].value*100}%`, txtX, txtY);
+
       ctx.fill();
 
       tempArc += angle;
