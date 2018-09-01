@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>折线图</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="500">
+    你的浏览器不支持canvas，请升级！
+  </canvas>
+  <script>
+  (function(){
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    canvas.style.border='1px solid red';
+    
+    const data = [.4,.5,.8,.7];
+
+    const tx = 100, ty = 400;  // 坐标中心点
+    const arrowWidth = 10;
+    // x轴
+    ctx.beginPath();
+    ctx.moveTo(tx, ty);
+    ctx.strokeStyle= 'blue';
+    ctx.lineTo(500, 400);
+    // 箭头
+    ctx.lineTo(500-arrowWidth, 400-arrowWidth);
+    ctx.moveTo(500,400);
+    ctx.lineTo(500-arrowWidth, 400+arrowWidth);
+    ctx.stroke();
+    // y轴
+    ctx.beginPath();
+    ctx.strokeStyle='red';
+    ctx.moveTo(tx, ty);
+    ctx.lineTo(100, 100);
+    ctx.lineTo(100-arrowWidth, 100+arrowWidth);
+    ctx.moveTo(100,100);
+    ctx.lineTo(100+arrowWidth, 100+arrowWidth);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle='#00bcd4';
+    // ctx.moveTo(tx, ty); 不需要，第一次lineTo不需要绘制，相当于moveTo
+    const avgWidth = 400 / (data.length+1);  // 总长300
+    for(let i=0;i<data.length; i++){
+      let x = tx  + (i+1)*avgWidth;
+      let y = ty - data[i]*300;
+      ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+
+  })();
+  </script>
+</body>
+</html>
