@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>支付宝链接转换工具</title>
+  <style>
+  html,body{
+    margin: 0;padding: 0;
+  }
+  *{
+    box-sizing: border-box;
+  }
+  h1,h4{
+    text-align: center;
+  }
+  .form{
+    text-align: center;
+  }
+  .form div{
+    display: inline-block;
+  }
+  input{
+    border: 2px solid #31B16C;
+    color: #31B16C;
+    outline: none;
+    font-size: 18px;
+    padding: 5px;
+    height: 44px;
+    width: 500px;
+    vertical-align: top;
+  }
+  .btn{
+    background: #31B16C;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    width: 100px;
+    text-align: center;
+    margin-left: 10px;
+  }
+  #J_result{
+    background: #eee;
+    margin-top: 20px;
+    text-align: center;
+    word-break: break-all;
+    padding: 15px 30px;
+  }
+  </style>
+</head>
+<body>
+  <h1>支付宝链接转换工具</h1>
+  <h4>将正常链接转换成alipays://形式，该链接只能在支付宝app中打开</h4>
+  <div class="form">
+    <input type="text" id="J_text" placeholder="请输入要转换的链接"/>
+    <div class="btn" id="J_btn">转换</div>
+  </div>
+  <div id="J_result"></div>
+  <script>
+  // alipays://platformapi/startapp?appId=20000067&url=
+  var J_btn = document.getElementById('J_btn');
+  var J_text = document.getElementById('J_text');
+  var J_result = document.getElementById('J_result');
+  J_btn.addEventListener('click', function(){
+    var value = J_text.value;
+    if(!value){
+      alert('链接不能为空！');
+      return;
+    }
+    var url = 'alipays://platformapi/startapp?appId=20000067&url='+encodeURIComponent(value);
+    J_result.innerHTML = url;
+  })
+  </script>
+</body>
+</html>
