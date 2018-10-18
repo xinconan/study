@@ -49,6 +49,13 @@
     word-break: break-all;
     padding: 15px 30px;
   }
+  #J_qr{
+    text-align: center;
+    margin-top: 20px;
+  }
+  img{
+    display: inline-block!important;
+  }
   </style>
 </head>
 <body>
@@ -57,13 +64,21 @@
   <div class="form">
     <input type="text" id="J_text" placeholder="请输入要转换的链接"/>
     <div class="btn" id="J_btn">转换</div>
+    <div class="btn" id="J_clear">清空</div>
   </div>
   <div id="J_result"></div>
+  <div id="J_qr"></div>
+  <script src="./qrcode.min.js"></script>
   <script>
   // alipays://platformapi/startapp?appId=20000067&url=
   var J_btn = document.getElementById('J_btn');
+  var J_clear = document.getElementById('J_clear');
   var J_text = document.getElementById('J_text');
   var J_result = document.getElementById('J_result');
+  var qrcode = new QRCode(document.getElementById("J_qr"), {
+    width : 200,
+    height : 200
+  });
   J_btn.addEventListener('click', function(){
     var value = J_text.value;
     if(!value){
@@ -72,6 +87,13 @@
     }
     var url = 'alipays://platformapi/startapp?appId=20000067&url='+encodeURIComponent(value);
     J_result.innerHTML = url;
+    qrcode.makeCode(url);
+    J_qr.style['display']='block';
+  });
+  J_clear.addEventListener('click', function(){
+    J_text.value = '';
+    J_result.innerHTML = '';
+    J_qr.style['display']='none';
   })
   </script>
 </body>
