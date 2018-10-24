@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      background: #018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
+      background-size: cover;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border: 20px solid white;
+      border-radius: 50%;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+      transform: translateY(-3px); /* account for the height of the clock hands */
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width: 50%;
+      height: 6px;
+      background: black;
+      position: absolute;
+      top: 50%;
+      transform: rotate(90deg);  /* 默认在12点指针 */
+      transform-origin: right;  /* 圆的中心点 */
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);  /* 有回弹效果 */
+    }
+
+  </style>
+
+  <script>
+  var hourDeg = 0, minDeg = 0, secDeg = 0;
+  var hourEle = document.querySelector('.hour-hand');
+  var minEle = document.querySelector('.min-hand');
+  var secEle = document.querySelector('.second-hand');
+
+  setInterval(()=>{
+    const now = new Date();
+    const hour = now.getHours();
+    const min = now.getMinutes();
+    const second = now.getSeconds();
+    console.log(`${hour}-${min}-${second}`)
+    hourDeg = (hour / 24) * 360 + 90;
+    minDeg = (min / 60) * 360 + 90;
+    secDeg = (second / 60) * 360 + 90;
+
+    // 规避从444°到90°旋转闪动
+    if(minDeg == 90) {
+      minEle.style.transition = 'all 0s';
+    }else{
+      minEle.style.transition = 'all 0.05s';
+    }
+    if(secDeg == 90) {
+      secEle.style.transition = 'all 0s';
+    }else{
+      secEle.style.transition = 'all 0.05s';
+    }
+
+
+    hourEle.style.transform = `rotate(${hourDeg}deg)`;
+    minEle.style.transform = `rotate(${minDeg}deg)`;
+    secEle.style.transform = `rotate(${secDeg}deg)`;
+  }, 1000)
+  </script>
+</body>
+</html>

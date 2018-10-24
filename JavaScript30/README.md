@@ -3,4 +3,5 @@
 
 在线预览：
 - [01 - JavaScript Drum Kit](https://xinconan.github.io/study/JavaScript30/01%20-%20JavaScript%20Drum%20Kit/index.html)
-  
+- [02 - JS and CSS Clock](https://xinconan.github.io/study/JavaScript30/02 - JS and CSS Clock/index.html)
+
