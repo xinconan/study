@@ -7,4 +7,5 @@
 - [03 - CSS Variables](https://xinconan.github.io/study/JavaScript30/03%20-%20CSS%20Variables/index.html)
 - [04 - Array Cardio Day 1](https://xinconan.github.io/study/JavaScript30/04%20-%20Array%20Cardio%20Day%201/index.html)
 - [05 - Flex Panel Gallery](https://xinconan.github.io/study/JavaScript30/05%20-%20Flex%20Panel%20Gallery/index.html)
-
+- [06 - Type Ahead](https://xinconan.github.io/study/JavaScript30/06%20-%20Type%20Ahead/index.html)
+- [07 - Array Cardio Day 2](https://xinconan.github.io/study/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
