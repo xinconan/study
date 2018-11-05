@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <p>press secret code 'xinconan' can see</p>
+<script>
+  const secretCode = 'xinconan';
+  const codeArray = [];
+
+  document.addEventListener('keyup', (e)=>{
+    console.log(e.key);
+    codeArray.push(e.key);
+    codeArray.splice(-secretCode.length - 1, codeArray.length - secretCode.length);
+    if(codeArray.join('').includes('xinconan')){
+      cornify_add();
+    }
+    console.log(codeArray)
+  });
+</script>
+</body>
+</html>
