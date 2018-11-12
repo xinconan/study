@@ -11,5 +11,6 @@
 - [07 - Array Cardio Day 2](https://xinconan.github.io/study/JavaScript30/07%20-%20Array%20Cardio%20Day%202/index.html)
 - [08 - Fun with HTML5 Canvas](https://xinconan.github.io/study/JavaScript30/08%20-%20Fun%20with%20HTML5%20Canvas/index.html)
 - [10 - Hold Shift and Check Checkboxes](https://xinconan.github.io/study/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
+- [11 - Custom Video Player](https://xinconan.github.io/study/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
 - [12 - Key Sequence Detection](https://xinconan.github.io/study/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)
 
