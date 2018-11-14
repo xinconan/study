@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+    // start with strings, numbers and booleans
+    // 对于string, number, boolean 类型的数据，拷贝都是值拷贝
+
+    // Let's say we have an array
+    // 对于object、array类型的数据，都是引用类型
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    // and we want to make a copy of it.
+
+    // You might think we can just do something like this:
+
+    // however what happens when we update that array?
+    // const players2 = players;
+    // now here is the problem!
+    // 修改会同步修改players
+    // players2[2] = 'xinconan';  
+    // console.log(players);
+    // console.log(players2);
+    // oh no - we have edited the original array too!
+    
+    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+    // So, how do we fix this? We take a copy instead!
+
+    // one way
+    const players3 = players.slice();  // 1
+    players3[2] = 'xinconan';
+    console.log(players);
+    console.log(players3);
+    // or create a new array and concat the old one in
+    const players4 = [].concat(players);  // 2
+    players4[2] = 'xin';
+    console.log(players);
+    console.log(players4);
+    // or use the new ES6 Spread
+    const players5 = [...players];  // 3
+
+    // now when we update it, the original one isn't changed
+
+    // The same thing goes for objects, let's say we have a person object
+
+    // with Objects
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    // and think we make a copy:
+
+    // how do we take a copy instead?
+    const p2 = Object.assign({}, person);
+    console.log(p2);
+    // We will hopefully soon see the object ...spread
+    // 这样是不行的
+    // const p3 = {...person};  
+    
+    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    // 上述的只能进行浅拷贝，对于下面这种子项也是数组或对象的，还是引用类型
+    const deepObj = {
+      name: 'Wes Bos',
+      age: 80,
+      birth: {
+        year: 1992,
+        name: 'xin'
+      }
+    }
+    // 可以使用JSON.parse
+    const deepCopy = JSON.parse(JSON.stringify(deepObj));
+  </script>
+
+</body>
+</html>

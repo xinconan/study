@@ -13,4 +13,4 @@
 - [10 - Hold Shift and Check Checkboxes](https://xinconan.github.io/study/JavaScript30/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
 - [11 - Custom Video Player](https://xinconan.github.io/study/JavaScript30/11%20-%20Custom%20Video%20Player/index.html)
 - [12 - Key Sequence Detection](https://xinconan.github.io/study/JavaScript30/12%20-%20Key%20Sequence%20Detection/index.html)
-
+- [14 - JavaScript References VS Copying](https://xinconan.github.io/study/JavaScript30/14%20-%20JavaScript%20References%20VS%20Copying/index.html)
