@@ -38,7 +38,7 @@
               var height = image.height;
               pWidth.innerHTML = width;
               pHeight.innerHTML = height;
-              pSize.innerHTML = f.size;
+              pSize.innerHTML = (f.size/1024/1024).toFixed(2) + 'M';
             };
             image.src = data;
           };
